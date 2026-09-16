@@ -1,0 +1,1547 @@
+<!doctype html>
+<html lang="en" data-visualize-standalone>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>RAG、Agent 与 Harness · 交互教学图</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="RAG、Agent 与 Harness · 交互教学图" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot; data-visualize-standalone&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;RAG、Agent 与 Harness · 交互教学图&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --icon-size: 16px;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --corner-shape: round;
+  --radius: var(--border-radius-lg, 10px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: var(--visualize-paint-gutter, 0px);
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: var(--corner-shape);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin-block: 6px;
+  border: 0;
+  background: var(--border);
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress {
+  display: flex;
+  height: 8px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 8px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar:only-child {
+  border-radius: var(--radius-full);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.nav-link,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn,
+.nav-link {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover,
+.nav-link:not(:disabled):not([aria-disabled=&quot;true&quot;]):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.nav-pills .nav-link {
+  min-width: 0;
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.nav-justified .nav-link {
+  flex: 1 1 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.nav-pills .nav-link.active {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+.btn:disabled,
+.nav-link:disabled,
+.nav-link[aria-disabled=&quot;true&quot;] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: var(--corner-shape);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .btn,
+  .nav-link,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Keep small-screen WebKit from zooming when a text field receives focus. */
+  .form-control,
+  .form-select {
+    font-size: max(16px, var(--font-size-normal));
+  }
+
+  .form-control[type=&quot;file&quot;]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type=&quot;color&quot;] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type=&quot;date&quot;],
+    [type=&quot;datetime-local&quot;],
+    [type=&quot;month&quot;],
+    [type=&quot;time&quot;],
+    [type=&quot;week&quot;]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: &quot;&quot;;
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+
+  .form-range::-webkit-slider-runnable-track {
+    height: 44px;
+  }
+
+  .form-range::-moz-range-track {
+    height: 44px;
+  }
+
+  .form-range::-webkit-slider-thumb {
+    margin-top: 12px;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: var(--icon-size) !important;
+  height: var(--icon-size) !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;rag-agent-harness&quot; lang=&quot;zh-CN&quot;&gt;
+ &lt;h3&gt;RAG × Agent × Harness · 完整架构与运行路径&lt;/h3&gt;
+ &lt;div class=&quot;viz-controls&quot;&gt;&lt;label class=&quot;form-label&quot; for=&quot;rh-route&quot;&gt;演示路径&lt;select id=&quot;rh-route&quot; class=&quot;form-select&quot;&gt;&lt;option value=&quot;rag&quot;&gt;独立 RAG&lt;/option&gt;&lt;option value=&quot;combined&quot; selected&gt;Agent ＋ RAG&lt;/option&gt;&lt;option value=&quot;tool&quot;&gt;Agent 工具闭环&lt;/option&gt;&lt;option value=&quot;sub&quot;&gt;Agent 委派闭环&lt;/option&gt;&lt;/select&gt;&lt;/label&gt;&lt;div class=&quot;viz-row&quot;&gt;&lt;button class=&quot;btn&quot; id=&quot;rh-prev&quot; type=&quot;button&quot;&gt;上一步&lt;/button&gt;&lt;button class=&quot;btn btn-primary&quot; id=&quot;rh-play&quot; type=&quot;button&quot;&gt;播放路径&lt;/button&gt;&lt;button class=&quot;btn&quot; id=&quot;rh-next&quot; type=&quot;button&quot;&gt;下一步&lt;/button&gt;&lt;button class=&quot;btn btn-ghost&quot; id=&quot;rh-reset&quot; type=&quot;button&quot;&gt;看全局&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
+ &lt;div class=&quot;viz-row&quot;&gt;&lt;span id=&quot;rh-count&quot; class=&quot;text-small tabular-nums&quot;&gt;&lt;/span&gt;&lt;span id=&quot;rh-caption&quot; role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+ &lt;div id=&quot;rh-stage&quot;&gt;&lt;/div&gt;
+ &lt;div class=&quot;viz-row text-small&quot;&gt;&lt;span&gt;● 高亮：当前传递&lt;/span&gt;&lt;span&gt;实线箭头：数据／控制流&lt;/span&gt;&lt;span&gt;虚线：索引／记忆支持&lt;/span&gt;&lt;span&gt;方框边界：职责范围&lt;/span&gt;&lt;/div&gt;
+ &lt;h3&gt;Harness 内的编排模式 · 可组合，非必经步骤&lt;/h3&gt;
+ &lt;div class=&quot;rh-patterns&quot;&gt;
+ &lt;div&gt;&lt;span&gt;Routing 路由&lt;/span&gt;&lt;div class=&quot;text-small&quot;&gt;输入 → 选择 A / B 路径&lt;/div&gt;&lt;/div&gt;
+ &lt;div&gt;&lt;span&gt;Prompt Chaining 调用链&lt;/span&gt;&lt;div class=&quot;text-small&quot;&gt;调用 A → 检查 → 调用 B&lt;/div&gt;&lt;/div&gt;
+ &lt;div&gt;&lt;span&gt;Parallelization 并行&lt;/span&gt;&lt;div class=&quot;text-small&quot;&gt;分叉 → A ∥ B → 汇总&lt;/div&gt;&lt;/div&gt;
+ &lt;div&gt;&lt;span&gt;Orchestrator–Workers&lt;/span&gt;&lt;div class=&quot;text-small&quot;&gt;动态拆分 → 委派 → 汇总&lt;/div&gt;&lt;/div&gt;
+ &lt;div&gt;&lt;span&gt;Evaluator–Optimizer&lt;/span&gt;&lt;div class=&quot;text-small&quot;&gt;生成 ⇄ 评估反馈 → 修订&lt;/div&gt;&lt;/div&gt;
+ &lt;div&gt;&lt;span&gt;执行对象&lt;/span&gt;&lt;div class=&quot;text-small&quot;&gt;模型调用 / 工具 / 子 Agent&lt;/div&gt;&lt;/div&gt;
+ &lt;/div&gt;
+ &lt;details&gt;&lt;summary&gt;概念边界与图中简化&lt;/summary&gt;&lt;dl&gt;
+ &lt;dt&gt;Harness 与 Agent&lt;/dt&gt;&lt;dd&gt;本图讨论基于 LLM 的 Agent。Harness 是使模型能够持续执行任务的运行支撑系统，不是额外的模型或流水线节点。框中展示其负责协调的模型接口、上下文、状态、执行控制；模型推理能力来自模型本身。外部工具、存储和子 Agent 不必归属于 Harness。&lt;/dd&gt;
+ &lt;dt&gt;RAG 的两种接法&lt;/dt&gt;&lt;dd&gt;左侧是完整的独立 RAG：检索 → 增强 → 生成。与 Agent 结合时，证据经观察与状态更新进入 Agent 的 Context，由右侧模型继续生成或行动，不必再调用左侧独立生成器。不同路径共用底图，不代表所有节点都要执行。&lt;/dd&gt;
+ &lt;dt&gt;检索编码&lt;/dt&gt;&lt;dd&gt;向量路径将 Query 编码后，与兼容表示空间中的文档向量匹配；编码器不一定是同一个。BM25 走关键词索引，不需稠密 Query Embedding。可只用一条路径，也可混合检索。Metadata 可用于过滤；重排可选。&lt;/dd&gt;
+ &lt;dt&gt;State、Memory、Context&lt;/dt&gt;&lt;dd&gt;State 包含当前任务状态；短期记忆通常是其中的会话信息，可以持久化。Context 是本轮实际选入模型输入的信息。长期记忆跨会话保存，图中用读取路径表示；可按需写回。记忆不等于模型权重更新。&lt;/dd&gt;
+ &lt;dt&gt;CoT 与 ReAct&lt;/dt&gt;&lt;dd&gt;CoT 是中间步骤推理方法，不等于多次模型调用的 Prompt Chaining。ReAct 是将推理、行动、观察交织的思路，是 Agent loop 的一种实现；不是每个 Agent 都必须使用。动画表示可观察的调用与信息流，不展示模型内部推理原文。&lt;/dd&gt;
+ &lt;dt&gt;Orchestration 与 Router&lt;/dt&gt;&lt;dd&gt;Orchestration 是协调调用、状态、依赖与停止的职责。Router 负责选择路径，可由规则或模型实现，不必独立成服务。下方五种编排模式不属于 Subagent 的子类，也不是固定先后顺序。&lt;/dd&gt;
+ &lt;dt&gt;Evaluator–Optimizer 与 Subagent&lt;/dt&gt;&lt;dd&gt;评估—修订可以用于局部输出或最终候选结果，不是参数训练，也不等于所有环境反馈循环。Subagent 是接受委派的执行角色，可以共享基础模型，并有自己的上下文、工具和循环；普通工作者不必是完整 Agent。&lt;/dd&gt;
+ &lt;dt&gt;停止与安全边界&lt;/dt&gt;&lt;dd&gt;模型可以选择完成，Harness 也可按步数、预算、超时或权限规则停止、重试或请求人工介入。图为教学用职责划分，工程实现没有唯一统一的分层标准。&lt;/dd&gt;
+ &lt;/dl&gt;&lt;/details&gt;
+ &lt;details&gt;&lt;summary&gt;一手参考资料 · RAG&lt;/summary&gt;&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/what-is/retrieval-augmented-generation/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;AWS：What is RAG?&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/2005.11401&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Lewis 等：RAG 原始论文&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Microsoft：RAG 与检索架构&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;https://www.anthropic.com/engineering/contextual-retrieval&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Anthropic：Contextual Retrieval&lt;/a&gt;&lt;/li&gt;
+ &lt;/ul&gt;&lt;/details&gt;
+ &lt;details&gt;&lt;summary&gt;一手参考资料 · Agent 与 Harness&lt;/summary&gt;&lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;https://www.anthropic.com/engineering/building-effective-agents&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Anthropic：Building Effective Agents（工作流与编排模式）&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Anthropic：Demystifying Evals（Agent Harness 定义）&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;https://www.anthropic.com/engineering/managed-agents&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Anthropic：Managed Agents（Harness、Session 与 Sandbox 的边界）&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Anthropic：Effective Harnesses for Long-running Agents&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/2210.03629&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Yao 等：ReAct&lt;/a&gt;；&lt;a href=&quot;https://arxiv.org/abs/2201.11903&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Wei 等：Chain-of-Thought&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;https://docs.langchain.com/oss/python/concepts/memory&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;LangChain：Memory&lt;/a&gt;；&lt;a href=&quot;https://docs.langchain.com/oss/python/langchain/multi-agent/subagents&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Subagents&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href=&quot;https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Anthropic：Context Engineering&lt;/a&gt;&lt;/li&gt;
+ &lt;/ul&gt;&lt;/details&gt;
+&lt;/div&gt;
+&lt;style&gt;
+ #rag-agent-harness{width:100%;color:var(--foreground)}
+ #rag-agent-harness h3{margin:18px 0 12px}
+ #rag-agent-harness #rh-caption{margin:12px 0;min-height:3em;flex:1}
+ #rag-agent-harness #rh-stage{width:100%}
+ #rag-agent-harness .rh-svg{width:100%;display:block}
+ #rag-agent-harness .rh-svg text{font-family:inherit;fill:var(--foreground);font-size:var(--font-size-small)}
+ #rag-agent-harness .rh-svg .title{font-size:var(--font-size-base);font-weight:500}
+ #rag-agent-harness .rh-svg .secondary{fill:var(--muted-foreground)}
+ #rag-agent-harness .boundary{fill:none;stroke:var(--border);stroke-width:1}
+ #rag-agent-harness .node rect{fill:var(--background);stroke:var(--border)}
+ #rag-agent-harness .node.active rect{fill:color-mix(in srgb,var(--viz-series-1) 14%,var(--background));stroke:var(--viz-series-1)}
+ #rag-agent-harness .edge{fill:none;stroke:var(--border);stroke-width:1.4}
+ #rag-agent-harness .edge.support{stroke-dasharray:4 4}
+ #rag-agent-harness .edge.active{stroke:var(--viz-series-1);stroke-width:2.6}
+ #rag-agent-harness .packet{fill:var(--viz-series-1)}
+ #rag-agent-harness .rh-patterns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 24px}
+ #rag-agent-harness .rh-patterns&gt;div{overflow-wrap:anywhere}
+ #rag-agent-harness .rh-patterns span{font-weight:500}
+ #rag-agent-harness details{margin-top:18px}
+ #rag-agent-harness summary{cursor:pointer}
+ #rag-agent-harness dt{font-weight:500;margin-top:12px}
+ #rag-agent-harness dd{margin:4px 0 0}
+ #rag-agent-harness li{margin:8px 0}
+ @media(max-width:440px){#rag-agent-harness .rh-patterns{grid-template-columns:1fr}}
+&lt;/style&gt;
+&lt;script&gt;
+(()=&gt;{
+const root=document.getElementById(&#x27;rag-agent-harness&#x27;);if(!root)return;
+const $=id=&gt;root.querySelector(&#x27;#rh-&#x27;+id),NS=&#x27;http://www.w3.org/2000/svg&#x27;;
+const nodes=[
+ [&#x27;docs&#x27;,0,85,&#x27;知识源 / Documents&#x27;,&#x27;解析 → 切块 Chunking&#x27;,&#x27;附加 Metadata / 来源&#x27;],
+ [&#x27;index&#x27;,0,185,&#x27;文档编码与索引&#x27;,&#x27;Document Embedding → 向量索引&#x27;,&#x27;原文片段＋关键词索引&#x27;],
+ [&#x27;query&#x27;,0,340,&#x27;检索 Query&#x27;,&#x27;独立：来自用户&#x27;,&#x27;结合：来自 Agent 的请求&#x27;],
+ [&#x27;encode&#x27;,0,435,&#x27;查询处理&#x27;,&#x27;向量路：Query Encoder&#x27;,&#x27;关键词路：BM25（无需向量）&#x27;],
+ [&#x27;retrieve&#x27;,0,530,&#x27;检索 Retrieval&#x27;,&#x27;向量相似度 / 关键词 / 混合&#x27;,&#x27;Top-k · Metadata 过滤&#x27;],
+ [&#x27;evidence&#x27;,0,625,&#x27;候选证据&#x27;,&#x27;融合 / 重排 Reranking〔可选〕&#x27;,&#x27;原文片段＋来源&#x27;],
+ [&#x27;augment&#x27;,0,735,&#x27;增强 Augmentation&#x27;,&#x27;问题＋指令＋检索到的证据&#x27;,&#x27;构成本次生成的 Context&#x27;],
+ [&#x27;generate&#x27;,0,840,&#x27;生成 Generation&#x27;,&#x27;LLM 基于增强上下文作答&#x27;,&#x27;独立 RAG 的生成路径&#x27;],
+ [&#x27;answer&#x27;,0,940,&#x27;回答＋来源引用&#x27;,&#x27;检查证据是否支持结论&#x27;,&#x27;检索增强不保证回答必然正确&#x27;],
+ [&#x27;goal&#x27;,1,45,&#x27;用户目标 / Goal&#x27;,&#x27;任务 · 约束 · 完成条件&#x27;,&#x27;Agent：围绕目标决定行动&#x27;],
+ [&#x27;context&#x27;,1,190,&#x27;上下文管理 Context&#x27;,&#x27;指令＋选取的历史／证据&#x27;,&#x27;选择 · 压缩 · 组装模型输入&#x27;],
+ [&#x27;model&#x27;,1,285,&#x27;LLM / Model&#x27;,&#x27;理解 · 推理 · 决策 · 生成&#x27;,&#x27;CoT：可选推理方法&#x27;],
+ [&#x27;dispatch&#x27;,1,390,&#x27;执行控制 / Dispatch&#x27;,&#x27;接收模型的调用请求并执行&#x27;,&#x27;检索 / 工具 / 委派，按需选择&#x27;],
+ [&#x27;observe&#x27;,1,625,&#x27;观察 Observation&#x27;,&#x27;接收实际结果或错误&#x27;,&#x27;反馈给后续模型调用&#x27;],
+ [&#x27;state&#x27;,1,735,&#x27;State / Short-term memory&#x27;,&#x27;保存进度、历史与本轮结果&#x27;,&#x27;选取后进入下一轮 Context&#x27;],
+ [&#x27;memory&#x27;,1,840,&#x27;长期记忆接口〔可选〕&#x27;,&#x27;读写跨会话信息&#x27;,&#x27;存储可在外部；不是改模型权重&#x27;],
+ [&#x27;output&#x27;,1,940,&#x27;输出 / 停止 / 转人工&#x27;,&#x27;模型决定完成；系统检查限制&#x27;,&#x27;预算 · 步数 · 超时 · 权限&#x27;],
+ [&#x27;sub&#x27;,0,1070,&#x27;外部：Subagent〔可选〕&#x27;,&#x27;独立 Context＋决策行动循环&#x27;,&#x27;返回子任务结果；可共享模型&#x27;],
+ [&#x27;tool&#x27;,1,1070,&#x27;外部：工具与环境&#x27;,&#x27;API / 代码 / 数据库 / Sandbox&#x27;,&#x27;实际执行 → 返回结果或错误&#x27;]
+];
+const edges=[
+ [&#x27;docs&#x27;,&#x27;index&#x27;,&#x27;support&#x27;],[&#x27;query&#x27;,&#x27;encode&#x27;],[&#x27;encode&#x27;,&#x27;retrieve&#x27;],[&#x27;index&#x27;,&#x27;retrieve&#x27;,&#x27;index&#x27;],[&#x27;retrieve&#x27;,&#x27;evidence&#x27;],[&#x27;evidence&#x27;,&#x27;augment&#x27;],[&#x27;augment&#x27;,&#x27;generate&#x27;],[&#x27;generate&#x27;,&#x27;answer&#x27;],
+ [&#x27;goal&#x27;,&#x27;context&#x27;],[&#x27;context&#x27;,&#x27;model&#x27;],[&#x27;model&#x27;,&#x27;dispatch&#x27;],[&#x27;dispatch&#x27;,&#x27;query&#x27;,&#x27;request&#x27;],[&#x27;evidence&#x27;,&#x27;observe&#x27;,&#x27;bridge&#x27;],[&#x27;observe&#x27;,&#x27;state&#x27;],[&#x27;state&#x27;,&#x27;context&#x27;,&#x27;loop&#x27;],[&#x27;memory&#x27;,&#x27;context&#x27;,&#x27;memory&#x27;],[&#x27;model&#x27;,&#x27;output&#x27;,&#x27;finish&#x27;],[&#x27;dispatch&#x27;,&#x27;tool&#x27;,&#x27;toolout&#x27;],[&#x27;tool&#x27;,&#x27;observe&#x27;,&#x27;toolback&#x27;],[&#x27;dispatch&#x27;,&#x27;sub&#x27;,&#x27;subout&#x27;],[&#x27;sub&#x27;,&#x27;observe&#x27;,&#x27;subback&#x27;]
+];
+const st=(text,ids)=&gt;({text,ids});
+const intro=st(&#x27;静态底图始终保留：左侧是完整 RAG；右侧是 Agent 的模型与 Harness；下方是外部执行能力。&#x27;,[]);
+const start=[st(&#x27;用户目标进入 Harness，由上下文管理组装本轮模型输入。&#x27;,[&#x27;goal&gt;context&#x27;]),st(&#x27;模型读取 Context，决定下一步；CoT 属于推理方法，不是额外执行模块。&#x27;,[&#x27;context&gt;model&#x27;])];
+const retrieval=[st(&#x27;向量检索先编码 Query；关键词检索可走 BM25。两者也可以组合。&#x27;,[&#x27;query&gt;encode&#x27;]),st(&#x27;在对应索引中检索候选，向量路使用兼容的表示空间。&#x27;,[&#x27;encode&gt;retrieve&#x27;,&#x27;index&gt;retrieve&#x27;]),st(&#x27;获得候选片段，按需融合、重排，并保留来源。&#x27;,[&#x27;retrieve&gt;evidence&#x27;])];
+const feedback=[st(&#x27;返回结果进入状态与会话记忆；选取相关信息组装下一轮 Context。&#x27;,[&#x27;observe&gt;state&#x27;,&#x27;state&gt;context&#x27;]),st(&#x27;模型读取更新后的 Context，再作决策或生成。ReAct 是实现这种循环的一种思路。&#x27;,[&#x27;context&gt;model&#x27;]),st(&#x27;任务完成后输出；Harness 也可按预算、超时等规则停止或转人工。&#x27;,[&#x27;model&gt;output&#x27;])];
+const routes={
+ rag:[intro,st(&#x27;知识准备：解析切块，生成文档向量，保存原文及索引；可独立于请求更新。&#x27;,[&#x27;docs&gt;index&#x27;]),...retrieval,st(&#x27;将检索到的原文证据、问题与指令组成增强上下文。&#x27;,[&#x27;evidence&gt;augment&#x27;]),st(&#x27;调用生成模型；这里不需要 Agent 先选择行动。&#x27;,[&#x27;augment&gt;generate&#x27;]),st(&#x27;输出回答与来源，仍需检查证据支持程度。&#x27;,[&#x27;generate&gt;answer&#x27;])],
+ combined:[intro,...start,st(&#x27;模型提出检索请求，Harness 把它交给左侧检索能力。&#x27;,[&#x27;model&gt;dispatch&#x27;,&#x27;dispatch&gt;query&#x27;]),...retrieval,st(&#x27;证据回到 Agent 的 Observation；这条组合路径无需再调用左侧独立生成器。&#x27;,[&#x27;evidence&gt;observe&#x27;]),...feedback],
+ tool:[intro,...start,st(&#x27;模型发出工具调用请求；Harness 负责调度到实际工具与执行环境。&#x27;,[&#x27;model&gt;dispatch&#x27;,&#x27;dispatch&gt;tool&#x27;]),st(&#x27;工具执行后的结果或错误返回 Observation，作为真实环境反馈。&#x27;,[&#x27;tool&gt;observe&#x27;]),...feedback],
+ sub:[intro,...start,st(&#x27;模型提出委派，Harness 调度子 Agent；无需先走检索或普通工具分支。&#x27;,[&#x27;model&gt;dispatch&#x27;,&#x27;dispatch&gt;sub&#x27;]),st(&#x27;子 Agent 使用自己的上下文与循环，完成后返回结果。&#x27;,[&#x27;sub&gt;observe&#x27;]),...feedback]
+};
+let route=&#x27;combined&#x27;,pos=0,timer=null,raf=null,svg,paths={},layout={};
+function el(tag,attrs={},text){const e=document.createElementNS(NS,tag);for(const [k,v]of Object.entries(attrs))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;return e}
+function stop(){if(timer)clearInterval(timer);timer=null;$(&#x27;play&#x27;).textContent=&#x27;播放路径&#x27;;$(&#x27;play&#x27;).setAttribute(&#x27;aria-pressed&#x27;,&#x27;false&#x27;)}
+function draw(animate=false){
+ if(raf)cancelAnimationFrame(raf);paths={};const W=Math.max(300,$(&#x27;stage&#x27;).getBoundingClientRect().width),mobile=W&lt;680;
+ const bw=mobile?W-92:(W-140)/2,bh=76,x=c=&gt;mobile?46:(c===0?30:W/2+40),offset=mobile?1100:0,H=mobile?2400:1180;
+ layout=Object.fromEntries(nodes.map(([id,c,y])=&gt;[id,{x:x(c),y:mobile?(id===&#x27;sub&#x27;?2190:id===&#x27;tool&#x27;?2300:y+c*offset):y,w:bw,h:bh}]));
+ svg=el(&#x27;svg&#x27;,{class:&#x27;rh-svg&#x27;,viewBox:`0 0 ${W} ${H}`,role:&#x27;img&#x27;,&#x27;aria-label&#x27;:&#x27;RAG 完整知识增强架构与 Agent Harness 的系统关系图。检索请求连接两侧，证据通过观察和状态进入模型上下文。工具与子 Agent 位于运行支撑边界外。&#x27;});
+ const defs=el(&#x27;defs&#x27;);for(const active of [false,true]){const m=el(&#x27;marker&#x27;,{id:&#x27;rh-arrow&#x27;+Number(active),viewBox:&#x27;0 0 10 10&#x27;,refX:9,refY:5,markerWidth:6,markerHeight:6,orient:&#x27;auto&#x27;});m.append(el(&#x27;path&#x27;,{d:&#x27;M0 0 L10 5 L0 10 Z&#x27;,fill:active?&#x27;var(--viz-series-1)&#x27;:&#x27;var(--border)&#x27;}));defs.append(m)}svg.append(defs);
+ const label=(text,lx,ly,cls=&#x27;secondary&#x27;)=&gt;svg.append(el(&#x27;text&#x27;,{x:lx,y:ly,class:cls},text));
+ label(&#x27;RAG · 外部知识增强&#x27;,x(0),22,&#x27;title&#x27;);label(&#x27;① 知识准备 / Indexing&#x27;,x(0),66);label(&#x27;② 检索 → 增强 → 生成&#x27;,x(0),313);
+ label(&#x27;Agent · 目标驱动系统&#x27;,x(1),mobile?1122:22,&#x27;title&#x27;);
+ const fy=mobile?1240:140,fx=mobile?28:W/2+20,fw=mobile?W-56:W/2-32;
+ svg.append(el(&#x27;rect&#x27;,{x:fx,y:fy,width:fw,height:895,class:&#x27;boundary&#x27;,rx:3}));
+ label(&#x27;Harness · 运行支撑边界&#x27;,x(1),fy+25,&#x27;title&#x27;);
+ label(&#x27;Orchestration 编排职责&#x27;,x(1),mobile?1589:489,&#x27;title&#x27;);
+ label(&#x27;路由 · 调用链 · 并行 · 委派 · 评估&#x27;,x(1),mobile?1612:512);
+ label(&#x27;权限检查 · 重试 · 记录 · 停止条件&#x27;,x(1),mobile?1635:535);
+ label(&#x27;Loop：决策 → 行动 → 观察 → 再决策&#x27;,x(1),mobile?1680:580);
+ label(&#x27;ReAct：可选循环实现思路&#x27;,x(1),mobile?1700:600);
+ if(!mobile){label(&#x27;外部执行能力 · 不强制属于 Harness&#x27;,30,1052);label(&#x27;RAG 接入后：右侧 Context＋LLM 承担增强与生成&#x27;,30,1170);}
+ const current=routes[route][pos],activeNodes=new Set(current.ids.flatMap(id=&gt;id.split(&#x27;&gt;&#x27;)));
+ function side(A,B,rail,which=&#x27;right&#x27;){const a=which===&#x27;right&#x27;?A.x+A.w:A.x,b=which===&#x27;right&#x27;?B.x+B.w:B.x;return `M${a} ${A.y+38} H${rail} V${B.y+38} H${b}`}
+ for(const [a,b,type]of edges){const A=layout[a],B=layout[b],id=a+&#x27;&gt;&#x27;+b;let d;
+ if(id===&#x27;goal&gt;context&#x27;)d=side(A,B,mobile?W-40:W-30);
+ else if(type===&#x27;index&#x27;)d=side(A,B,mobile?34:16,&#x27;left&#x27;);
+ else if(type===&#x27;loop&#x27;)d=side(A,B,mobile?34:W/2+29,&#x27;left&#x27;);
+ else if(type===&#x27;memory&#x27;)d=side(A,B,mobile?W-34:W-24);
+ else if(type===&#x27;finish&#x27;)d=side(A,B,mobile?W-28:W-18);
+ else if(type===&#x27;request&#x27;){d=mobile?side(A,B,10,&#x27;left&#x27;):`M${A.x} ${A.y+24} H${W/2-10} V${B.y+38} H${B.x+B.w}`;}
+ else if(type===&#x27;bridge&#x27;){d=mobile?side(A,B,W-10):`M${A.x+A.w} ${A.y+38} H${B.x}`;}
+ else if(type===&#x27;toolout&#x27;)d=side(A,B,W-6);
+ else if(type===&#x27;toolback&#x27;)d=side(A,B,W-12);
+ else if(type===&#x27;subout&#x27;)d=mobile?side(A,B,18,&#x27;left&#x27;):`M${A.x} ${A.y+58} H${W/2+7} V${B.y+24} H${B.x+B.w}`;
+ else if(type===&#x27;subback&#x27;)d=mobile?side(A,B,24,&#x27;left&#x27;):`M${A.x+A.w} ${A.y+54} H${W/2+13} V${B.y+57} H${B.x}`;
+ else d=`M${A.x+A.w/2} ${A.y+bh} V${B.y}`;
+ const active=current.ids.includes(id),p=el(&#x27;path&#x27;,{d,class:&#x27;edge&#x27;+([&#x27;support&#x27;,&#x27;index&#x27;,&#x27;memory&#x27;].includes(type)?&#x27; support&#x27;:&#x27;&#x27;)+(active?&#x27; active&#x27;:&#x27;&#x27;),&#x27;marker-end&#x27;:`url(#rh-arrow${Number(active)})`,&#x27;data-edge&#x27;:id});paths[id]=p;svg.append(p);
+ }
+ for(const [id,c,y,title,line1,line2]of nodes){const p=layout[id],g=el(&#x27;g&#x27;,{class:&#x27;node&#x27;+(activeNodes.has(id)?&#x27; active&#x27;:&#x27;&#x27;),&#x27;data-node&#x27;:id});g.append(el(&#x27;rect&#x27;,{x:p.x,y:p.y,width:p.w,height:bh,rx:5}));[title,line1,line2].forEach((t,i)=&gt;g.append(el(&#x27;text&#x27;,{x:p.x+p.w/2,y:p.y+23+i*21,&#x27;text-anchor&#x27;:&#x27;middle&#x27;,class:i===0?&#x27;title&#x27;:&#x27;secondary&#x27;},t)));svg.append(g)}
+ $(&#x27;stage&#x27;).replaceChildren(svg);$(&#x27;caption&#x27;).textContent=current.text;$(&#x27;count&#x27;).textContent=pos?`${pos} / ${routes[route].length-1}`:&#x27;全局&#x27;;$(&#x27;prev&#x27;).disabled=pos===0;$(&#x27;next&#x27;).disabled=pos===routes[route].length-1;
+ if(animate&amp;&amp;!matchMedia(&#x27;(prefers-reduced-motion: reduce)&#x27;).matches&amp;&amp;current.ids.length){const packets=current.ids.map(id=&gt;{const dot=el(&#x27;circle&#x27;,{r:4,class:&#x27;packet&#x27;,visibility:&#x27;hidden&#x27;});svg.append(dot);return{dot,p:paths[id]}});let start;const tick=t=&gt;{if(start===undefined)start=t;const elapsed=t-start;packets.forEach(({dot,p},i)=&gt;{const u=(elapsed-i*800)/750;if(u&gt;=0&amp;&amp;u&lt;=1){const point=p.getPointAtLength(p.getTotalLength()*u);dot.setAttribute(&#x27;cx&#x27;,point.x);dot.setAttribute(&#x27;cy&#x27;,point.y);dot.setAttribute(&#x27;visibility&#x27;,&#x27;visible&#x27;)}else dot.setAttribute(&#x27;visibility&#x27;,&#x27;hidden&#x27;)});if(elapsed&lt;packets.length*800)raf=requestAnimationFrame(tick)};raf=requestAnimationFrame(tick)}
+}
+$(&#x27;route&#x27;).addEventListener(&#x27;change&#x27;,e=&gt;{stop();route=e.target.value;pos=0;draw()});$(&#x27;prev&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{stop();pos=Math.max(0,pos-1);draw(true)});$(&#x27;next&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{stop();pos=Math.min(routes[route].length-1,pos+1);draw(true)});$(&#x27;reset&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{stop();pos=0;draw()});
+$(&#x27;play&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{if(timer){stop();return}if(pos===routes[route].length-1)pos=0;pos++;draw(true);$(&#x27;play&#x27;).textContent=&#x27;暂停&#x27;;$(&#x27;play&#x27;).setAttribute(&#x27;aria-pressed&#x27;,&#x27;true&#x27;);timer=setInterval(()=&gt;{pos++;draw(true);if(pos===routes[route].length-1)stop()},6500)});
+new ResizeObserver(()=&gt;draw()).observe($(&#x27;stage&#x27;));draw();
+})();
+&lt;/script&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+  let lastPointerWasTouch = false;
+  let pinnedByTouch = false;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    pinnedByTouch = false;
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handlePointer = (event) =&gt; {
+    lastPointerWasTouch =
+      event.type === &quot;pointerdown&quot; &amp;&amp; event.pointerType === &quot;touch&quot;;
+  };
+  const handleTouchClick = (event) =&gt; {
+    const isTouch = event.pointerType === &quot;touch&quot; || lastPointerWasTouch;
+    lastPointerWasTouch = false;
+    if (!isTouch || event.detail === 0) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (
+      trigger == null ||
+      !trigger.isConnected ||
+      getContent(trigger).length === 0 ||
+      (pinnedByTouch &amp;&amp; activeTrigger === trigger)
+    ) {
+      if (pinnedByTouch) {
+        closeTooltip();
+      }
+      return;
+    }
+    openTooltip(trigger);
+    pinnedByTouch = activeTrigger === trigger;
+    window.setTimeout(() =&gt; {
+      if (activeTrigger === trigger &amp;&amp; !trigger.isConnected) {
+        closeTooltip(false);
+      }
+    }, 0);
+  };
+  const handleLeave = (event) =&gt; {
+    if (pinnedByTouch) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    lastPointerWasTouch = false;
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    lastPointerWasTouch = false;
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerdown&quot;, handlePointer);
+    document.removeEventListener(&quot;pointercancel&quot;, handlePointer);
+    document.removeEventListener(&quot;click&quot;, handleTouchClick);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerdown&quot;, handlePointer);
+  document.addEventListener(&quot;pointercancel&quot;, handlePointer);
+  document.addEventListener(&quot;click&quot;, handleTouchClick);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-tabs&quot;&gt;
+(() =&gt; {
+  const selector = &#x27;.nav[role=&quot;tablist&quot;] [role=&quot;tab&quot;]&#x27;;
+  const disabled = &#x27;:disabled,[aria-disabled=&quot;true&quot;]&#x27;;
+  const selectTab = (selected) =&gt; {
+    const panelId = selected.getAttribute(&quot;aria-controls&quot;);
+    for (const tab of selected.closest(&#x27;[role=&quot;tablist&quot;]&#x27;).querySelectorAll(&#x27;[role=&quot;tab&quot;]&#x27;)) {
+      const active = tab === selected;
+      tab.classList.toggle(&quot;active&quot;, active);
+      tab.setAttribute(&quot;aria-selected&quot;, String(active));
+      const id = tab.getAttribute(&quot;aria-controls&quot;);
+      const panel = id &amp;&amp; document.getElementById(id);
+      if (panel != null) {
+        panel.hidden = id !== panelId;
+        if (!panel.hidden &amp;&amp; selected.id) {
+          panel.setAttribute(&quot;aria-labelledby&quot;, selected.id);
+        }
+      }
+    }
+  };
+  const interact = (event) =&gt; {
+    const tab = event.target?.closest?.(selector);
+    if (event.defaultPrevented || tab == null || tab.matches(disabled)) {
+      return;
+    }
+    if (event.type === &quot;click&quot;) {
+      selectTab(tab);
+      return;
+    }
+    const tabs = Array.from(
+      tab.closest(&#x27;[role=&quot;tablist&quot;]&#x27;).querySelectorAll(&#x27;[role=&quot;tab&quot;]&#x27;),
+    ).filter((candidate) =&gt; !candidate.matches(disabled));
+    const current = tabs.indexOf(tab);
+    let next;
+    if (event.key === &quot;ArrowRight&quot; || event.key === &quot;ArrowDown&quot;) {
+      next = (current + 1) % tabs.length;
+    } else if (event.key === &quot;ArrowLeft&quot; || event.key === &quot;ArrowUp&quot;) {
+      next = (current + tabs.length - 1) % tabs.length;
+    } else if (event.key === &quot;Home&quot;) {
+      next = 0;
+    } else if (event.key === &quot;End&quot;) {
+      next = tabs.length - 1;
+    } else {
+      return;
+    }
+    event.preventDefault();
+    tabs[next].focus();
+    selectTab(tabs[next]);
+  };
+
+  for (const list of document.querySelectorAll(&#x27;.nav[role=&quot;tablist&quot;]&#x27;)) {
+    const selected =
+      list.querySelector(&#x27;[role=&quot;tab&quot;][aria-selected=&quot;true&quot;]&#x27;) ??
+      list.querySelector(&#x27;[role=&quot;tab&quot;].active&#x27;) ??
+      list.querySelector(&#x27;[role=&quot;tab&quot;]&#x27;);
+    if (selected != null) {
+      selectTab(selected);
+    }
+  }
+  document.addEventListener(&quot;click&quot;, interact);
+  document.addEventListener(&quot;keydown&quot;, interact);
+  window.addEventListener(&quot;pagehide&quot;, () =&gt; {
+    document.removeEventListener(&quot;click&quot;, interact);
+    document.removeEventListener(&quot;keydown&quot;, interact);
+  }, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>
